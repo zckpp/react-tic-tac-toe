@@ -10,7 +10,8 @@ class App extends Component {
   handleClick  = (e) => {
     let rowId = e.target.parentNode.getAttribute('data');
     let colId = e.target.getAttribute('data');
-    let temp = this.state.game;
+    // Immutability
+    let temp = this.state.game.slice();
     temp[rowId][colId] = this.state.player;
     // if winning row
     if (temp[rowId][0] === temp[rowId][1] && temp[rowId][1] === temp[rowId][2] && temp[rowId][2] !== ' ') {
